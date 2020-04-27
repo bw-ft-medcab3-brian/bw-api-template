@@ -20,8 +20,11 @@ def create_app():
     app.register_blueprint(home_routes)
     app.register_blueprint(recommendation_routes)
 
-    # TODO
-    # configure the database
+    
+    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False # suppress warning messages
+    db.init_app(app)
+    migrate.init_app(app, db)
 
     return app
 
