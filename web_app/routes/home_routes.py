@@ -5,6 +5,11 @@ from web_app.models import Strain, db, parse_records
 
 home_routes = Blueprint("home_routes", __name__)
 
+@home_routes.route("/")
+
+def welcome():
+    return "WELCOME!"
+
 @home_routes.route("/strains.json")
 
 def index():
