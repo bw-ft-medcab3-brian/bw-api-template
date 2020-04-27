@@ -7,7 +7,19 @@ db = SQLAlchemy()
 
 migrate = Migrate()
 
-# Create class Recommendation(db.Model)
+# Create class Strain(db.Model)
+
+class Strain(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    strain_name = db.Column(db.String(100), nullable=False)
+    strain_type = db.Column(db.String(30), nullable=True)
+    strain_terpene_profile = db.Column(db.String, nullable=True)
+    strain_flavor_profile = db.Column(db.String, nullable=True)
+    strain_frangrance_profile = db.Column(db.String, nullable=True)
+    strain_review_key = db.Column(db.String, nullable=True)
+    strain_nearest_neighbors = db.Column(db.String, nullable=True)
+    strain_description = db.Column(db.String, nullable=True)
+    strain_image = db.Column(db.String, nullable=True)
 
 def parse_records(database_records):
     """
