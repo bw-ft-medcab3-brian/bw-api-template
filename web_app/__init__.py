@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask
 
 from web_app.routes.home_routes import home_routes
-from web_app.routes.recommendation_routes import recommendation_routes
+from web_app.routes.strain_routes import strain_routes
 
 from web_app.models import db, migrate
 
@@ -18,7 +18,7 @@ def create_app():
     app.config["SECRET_KEY"] = SECRET_KEY
 
     app.register_blueprint(home_routes)
-    app.register_blueprint(recommendation_routes)
+    app.register_blueprint(strain_routes)
 
     
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
