@@ -35,5 +35,6 @@ flask run
 * Connecting application with database
 * Deploying application on Heroku
 * Integrating with Heroku PostgreSQL database
-* Automate recipe as shell script to make template repo
+* Tests/CI
+* Reproducible build scripts
 * Containerize the web application

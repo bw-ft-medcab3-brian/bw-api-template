@@ -23,7 +23,7 @@ def list_recommendations():
          "strain_terpene_profile": "profile type 3", "strain_flavor_profile": "flavor_3",
          "strain_frangrance_profile": "fragrance_3", "strain_review_key": "review_3",
          "strain_nearest_neighbors": "nearest_3", "strain_description": "description_3",
-         "strain_image": "image_3" },        
+         "strain_image": "image_3" }]       
 
     # TODO return ML recommendation using pickle object.
     return jsonify(recommendations)
