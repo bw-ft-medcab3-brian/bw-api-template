@@ -15,7 +15,7 @@ class Strain(db.Model):
     strain_type = db.Column(db.String(30), nullable=True)
     strain_terpene_profile = db.Column(db.String, nullable=True)
     strain_flavor_profile = db.Column(db.String, nullable=True)
-    strain_frangrance_profile = db.Column(db.String, nullable=True)
+    strain_relief_profile = db.Column(db.String, nullable=True)
     strain_review_key = db.Column(db.String, nullable=True)
     strain_nearest_neighbors = db.Column(db.String, nullable=True)
     strain_description = db.Column(db.String, nullable=True)
