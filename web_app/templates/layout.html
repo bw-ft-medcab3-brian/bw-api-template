@@ -1,0 +1,41 @@
+<!-- web_app/templates/layout.html -->
+
+<!doctype html>
+<html>
+  <head>
+    {% block title %}
+      <title>MedCab3 Webpage | Helps users get a canabis recommendation.</title>
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <!-- SITE NAVIGATION -->
+    <div class="container">
+      <div id="nav">
+        {% block nav %}
+          <h1><a href="/">MedCab3</a></h1>
+          <ul>
+            <li><a href="/">Welcome!</a></li>
+            <li><a href="/strains.json">Strains as JSON</a></li>               
+          </ul>
+        {% endblock %}
+      </div>
+      <hr>
+
+      <!-- PAGE CONTENTS -->
+      <div id="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+      <!-- FOOTER -->
+      <div id="footer">
+        <hr>
+        &copy; Copyright 2020 medcab3 |
+        <a href="https://github.com/bw-ft-medcab3-brian">source</a>
+      </div>
+    </div>
+
+  </body>
+</html>
