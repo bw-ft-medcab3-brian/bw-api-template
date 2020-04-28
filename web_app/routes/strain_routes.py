@@ -8,7 +8,7 @@ def strain_update():
     for strain in strains:
         strain = Strain(strain_description=strain["strain_description"],
                         strain_flavor_profile=strain["strain_flavor_profile"],
-                        strain_frangrance_profile=strain["strain_frangrance_profile"],
+                        strain_relief_profile=strain["strain_relief_profile"],
                         strain_image=strain["strain_image"],
                         strain_name=strain["strain_name"],
                         strain_nearest_neighbors=strain["strain_nearest_neighbors"],
