@@ -1,0 +1,136 @@
+<!-- web_app/templates/results.html -->
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Prediction Time</h2>
+
+    <p>Use the form below to get a recommendation strain</p>
+
+    <form action="/strains/predict" method="POST">
+
+        <label>Strain:</label>
+        <fieldset>      
+            <legend>Strain-type?</legend>      
+            <input type="checkbox" name="strain_type" value="Sativa">Sativa<br>      
+            <input type="checkbox" name="strain_type" value="Hybrid">Hybrid<br>      
+            <input type="checkbox" name="strain_type" value="Indica">Indica<br>         
+        </fieldset>
+        <br>
+
+        <label>Wanted Feelings:</label>
+        <fieldset>      
+            <legend>Wanted-Feelings?</legend>      
+                  
+            <input type="checkbox" name="feelings_wanted" value="Aroused">Aroused<br>      
+            <input type="checkbox" name="feelings_wanted" value="Creative">Creative<br>
+            <input type="checkbox" name="feelings_wanted" value="Energetic">Energetic<br> 
+            <input type="checkbox" name="feelings_wanted" value="Euphoric">Euphoric<br> 
+            <input type="checkbox" name="feelings_wanted" value="Focused">Focused<br> 
+            <input type="checkbox" name="feelings_wanted" value="Giggly">Giggly<br> 
+            <input type="checkbox" name="feelings_wanted" value="Happy">Happy<br> 
+            <input type="checkbox" name="feelings_wanted" value="Hungry">Hungry<br> 
+            <input type="checkbox" name="feelings_wanted" value="Relaxed">Relaxed<br> 
+            <input type="checkbox" name="feelings_wanted" value="Sleepy">Sleepy<br> 
+            <input type="checkbox" name="feelings_wanted" value="Talkative">Talkative<br> 
+            <input type="checkbox" name="feelings_wanted" value="Tingly">Tingly<br> 
+            <input type="checkbox" name="feelings_wanted" value="Uplifted">Uplifted<br> 
+        </fieldset>
+        <br>
+        
+        <label>Avoid Feelings:</label>
+        <fieldset>      
+            <legend>Avoid-Feelings?</legend>      
+            <input type="checkbox" name="feelings_avoid" value="Anxious">Anxious<br>      
+            <input type="checkbox" name="feelings_avoid" value="Aroused">Aroused<br>      
+            <input type="checkbox" name="feelings_avoid" value="Creative">Creative<br>
+            <input type="checkbox" name="feelings_avoid" value="Dizzy">Dizzy<br>
+            <input type="checkbox" name="feelings_avoid" value="Dry eyes">Dry eyes<br> 
+            <input type="checkbox" name="feelings_avoid" value="Dry mouth">Dry mouth<br> 
+            <input type="checkbox" name="feelings_avoid" value="Energetic">Energetic<br> 
+            <input type="checkbox" name="feelings_avoid" value="Euphoric">Euphoric<br> 
+            <input type="checkbox" name="feelings_avoid" value="Focused">Focused<br> 
+            <input type="checkbox" name="feelings_avoid" value="Giggly">Giggly<br> 
+            <input type="checkbox" name="feelings_avoid" value="Happy">Happy<br> 
+            <input type="checkbox" name="feelings_avoid" value="Headache">Headache<br> 
+            <input type="checkbox" name="feelings_avoid" value="Hungry">Hungry<br> 
+            <input type="checkbox" name="feelings_avoid" value="Paranoid">Paranoid<br> 
+            <input type="checkbox" name="feelings_avoid" value="Relaxed">Relaxed<br> 
+            <input type="checkbox" name="feelings_avoid" value="Sleepy">Sleepy<br> 
+            <input type="checkbox" name="feelings_avoid" value="Talkative">Talkative<br> 
+            <input type="checkbox" name="feelings_avoid" value="Tingly">Tingly<br> 
+            <input type="checkbox" name="feelings_avoid" value="Uplifted">Uplifted<br> 
+        </fieldset>
+        <br>
+
+        <label>Symptom Relief:</label>
+        <fieldset>      
+            <legend>Symptom-Relief?</legend>      
+            <input type="checkbox" name="symptom_relief" value="Insomnia">Insomnia<br>      
+            <input type="checkbox" name="symptom_relief" value="Headaches">Headaches<br>      
+            <input type="checkbox" name="symptom_relief" value="Eye Pressure">Eye Pressure<br>
+            <input type="checkbox" name="symptom_relief" value="Spasticity">Spasticity<br>
+            <input type="checkbox" name="symptom_relief" value="Seizures">Seizures<br> 
+            <input type="checkbox" name="symptom_relief" value="Pain">Pain<br> 
+            <input type="checkbox" name="symptom_relief" value="Depression">Depression<br> 
+            <input type="checkbox" name="symptom_relief" value="Cramps">Cramps<br> 
+            <input type="checkbox" name="symptom_relief" value="Nausea">Nausea<br> 
+            <input type="checkbox" name="symptom_relief" value="Stress">Stress<br> 
+            <input type="checkbox" name="symptom_relief" value="Muscle Spasms">Muscle Spasms<br> 
+            <input type="checkbox" name="symptom_relief" value="Lack of Appetite">Lack of Appetite<br> 
+            <input type="checkbox" name="symptom_relief" value="Inflammation">Inflammation<br> 
+        </fieldset>
+        <br>
+        
+        <label>Flavors:</label>
+        <fieldset>      
+            <legend>Flavors?</legend>      
+            <input type="checkbox" name="flavors" value="Vanilla">Vanilla<br>      
+            <input type="checkbox" name="flavors" value="Tobacco">Tobacco<br>      
+            <input type="checkbox" name="flavors" value="Tar">Tar<br>
+            <input type="checkbox" name="flavors" value="Lavender">Lavender<br>
+            <input type="checkbox" name="flavors" value="Butter">Butter<br> 
+            <input type="checkbox" name="flavors" value="Peach">Peach<br> 
+            <input type="checkbox" name="flavors" value="Grapefruit">Grapefruit<br> 
+            <input type="checkbox" name="flavors" value="Skunk">Skunk<br> 
+            <input type="checkbox" name="flavors" value="Chestnut">Chestnut<br> 
+            <input type="checkbox" name="flavors" value="Grape">Grape<br> 
+            <input type="checkbox" name="flavors" value="Apple">Apple<br> 
+            <input type="checkbox" name="flavors" value="Pineapple">Pineapple<br> 
+            <input type="checkbox" name="flavors" value="Diesel">Diesel<br>
+            <input type="checkbox" name="flavors" value="Mango">Mango<br> 
+            <input type="checkbox" name="flavors" value="Orange">Orange<br> 
+            <input type="checkbox" name="flavors" value="Citrus">Citrus<br> 
+            <input type="checkbox" name="flavors" value="Nutty">Nutty<br> 
+            <input type="checkbox" name="flavors" value="Plum">Plum<br> 
+            <input type="checkbox" name="flavors" value="Woody">Woody<br> 
+            <input type="checkbox" name="flavors" value="Pine">Pine<br> 
+            <input type="checkbox" name="flavors" value="Chemical">Chemical<br> 
+            <input type="checkbox" name="flavors" value="Berry">Berry<br> 
+            <input type="checkbox" name="flavors" value="Ammonia">Ammonia<br> 
+            <input type="checkbox" name="flavors" value="Flowery">Flowery<br> 
+            <input type="checkbox" name="flavors" value="Pepper">Pepper<br> 
+            <input type="checkbox" name="flavors" value="Mint">Mint<br> 
+            <input type="checkbox" name="flavors" value="Apricot">Apricot<br> 
+            <input type="checkbox" name="flavors" value="Tea">Tea<br> 
+            <input type="checkbox" name="flavors" value="Pungent">Pungent<br> 
+            <input type="checkbox" name="flavors" value="Tropical">Tropical<br> 
+            <input type="checkbox" name="flavors" value="Spicy/Herbal">Spicy/Herbal<br> 
+            <input type="checkbox" name="flavors" value="Pear">Pear<br> 
+            <input type="checkbox" name="flavors" value="Coffee">Coffee<br> 
+            <input type="checkbox" name="flavors" value="Violet">Violet<br> 
+            <input type="checkbox" name="flavors" value="Tree Fruit">Tree Fruit<br> 
+            <input type="checkbox" name="flavors" value="Rose">Rose<br> 
+            <input type="checkbox" name="flavors" value="Honey">Honey<br> 
+            <input type="checkbox" name="flavors" value="Sage">Sage<br> 
+            <input type="checkbox" name="flavors" value="Blue Cheese">Blue Cheese<br> 
+            <input type="checkbox" name="flavors" value="Earthy">Earthy<br> 
+            <input type="checkbox" name="flavors" value="Strawberry">Strawberry<br> 
+            <input type="checkbox" name="flavors" value="Sweet">Sweet<br> 
+        </fieldset>
+        <br>
+
+        <button>Submit</button>
+    </form>
+{% endblock %}
