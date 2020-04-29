@@ -85,6 +85,6 @@ def strain_prediction():
     for record in recommended_list:
         for i in range(len(record)):
             if len(record[i]) == 0:
-                print("Please try a new combination. No strains found.")
+                return("Please try a new combination. No strains found.")
             else:
                 return jsonify(record)
