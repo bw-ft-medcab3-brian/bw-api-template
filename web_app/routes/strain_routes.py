@@ -1,3 +1,4 @@
+import pandas as pd
 from flask import Blueprint, jsonify, request, render_template, flash, redirect
 from web_app.models import Strain, db, migrate
 from web_app.services.strain_service import strains
@@ -5,16 +6,14 @@ from web_app.services.strain_service import strains
 strain_routes = Blueprint("strain_routes", __name__)
 @strain_routes.route("/strain-db-update")
 def strain_update():
-    for strain in strains:
-        strain = Strain(strain_description=strain["strain_description"],
-                        strain_flavor_profile=strain["strain_flavor_profile"],
-                        strain_relief_profile=strain["strain_relief_profile"],
-                        strain_image=strain["strain_image"],
-                        strain_name=strain["strain_name"],
-                        strain_nearest_neighbors=strain["strain_nearest_neighbors"],
-                        strain_review_key=strain["strain_review_key"],
-                        strain_terpene_profile=strain["strain_terpene_profile"],
-                        strain_type=strain["strain_type"])
+    df = pd.DataFrame(strains)
+
+    for index, row in df.iterrows():
+        strain = Strain(strain_description=str(row["Strain_description"]),
+                        strain_flavor_profile=str(row["flavors"]),
+                        strain_relief_profile=str(row["feelings_symptoms"]),
+                        strain_name=str(row["strain"]),
+                        strain_type=str(row["strain_type"]))
         db.session.add(strain)
     db.session.commit()
     return "Strain DB Update Successful"
