@@ -1,7 +1,7 @@
 import requests
 import json
 
-url_strains = "https://raw.githubusercontent.com/bw-ft-medcab3-brian/ds/master/schemas/json_example_schema.txt"
+url_strains = "https://raw.githubusercontent.com/bw-ft-medcab3-brian/ds/master/data/clean/strains_for_db%20(1).json"
 result = requests.get(url_strains)
 strains = json.loads(result.text)
 
