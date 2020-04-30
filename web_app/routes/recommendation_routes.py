@@ -41,30 +41,36 @@ def strain_prediction():
         flavor_results.append(Strain.query.filter(Strain.strain_flavor_profile.like(f'%{flavor}%')).all())
     
     flavor_results = flavor_results[0]
+    print(flavor_results)
 
     strain_results = []
     for strain in strain_type:
         strain_results.append(Strain.query.filter(Strain.strain_type.like(f'%{strain}%')).all())
 
     strain_results = strain_results[0]
+    print(strain_results)
 
     feelings_relief_results = []
     for feeling in feelings_relief:
         feelings_relief_results.append(Strain.query.filter(Strain.strain_relief_profile.like(f'%{feeling}%')).all())
 
     feelings_relief_results = feelings_relief_results[0]
+    print(feelings_relief_results)
 
     flavor_strains = []
     for flavor in flavor_results:
         flavor_strains.append(flavor.strain_name)
+    print(flavor_strains)
 
     strains_strains = []
     for strain in strain_results:
         strains_strains.append(strain.strain_name)
+    print(strains_strains)
 
     relief_strains = []
     for relief in feelings_relief_results:
-        relief_strains.append(relief.strain_name) 
+        relief_strains.append(relief.strain_name)
+    print(relief_strains)
 
       
 
@@ -79,10 +85,12 @@ def strain_prediction():
     intersection_list = list(set(flavor_strains) & set(strains_strains))
     intersection_list2 = list(set(flavor_strains) & set(relief_strains))
     intersection_list3 = list(set(strains_strains) & set(relief_strains))
-
+    print(intersection_list)
+    print(intersection_list2)
+    print(intersection_list3)
     
     recommended_list = [intersection_list, intersection_list2, intersection_list3]
-    
+    print(recommended_list)
 
     #if len(intersection_list) + len(intersection_list2) + len(intersection_list3) == 3:
     #    for record_list in recommended_list:
