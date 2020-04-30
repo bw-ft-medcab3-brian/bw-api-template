@@ -81,10 +81,14 @@ def strain_prediction():
     intersection_list3 = list(set(strains_strains) & set(relief_strains))
 
     recommended_list = [intersection_list, intersection_list2, intersection_list3]
-    
-    for record in recommended_list:
-        for i in range(len(record)):
-            if len(record[i]) == 0:
-                return jsonify("Please try a new combination. No strains found.")
-            else:
-                return jsonify(record[i])
+
+    if len(recommended_list) == 0:
+        return jsonify("Please try a new combination. No strains found.")
+
+    else:
+        for record in recommended_list:
+            for i in range(len(record)):
+                if len(record[i]) == 0:
+                    return jsonify("")
+                else:
+                    return jsonify(record[i])
