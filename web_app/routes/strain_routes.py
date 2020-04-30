@@ -2,6 +2,12 @@ import pandas as pd
 from flask import Blueprint, jsonify, request, render_template, flash, redirect
 from web_app.models import Strain, db, migrate
 from web_app.services.strain_service import strains
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_KEY = os.getenv("API_KEY")
 
 strain_routes = Blueprint("strain_routes", __name__)
 @strain_routes.route("/strain-db-update")
@@ -18,26 +24,17 @@ def strain_update():
     db.session.commit()
     return "Strain DB Update Successful"
 
+
 @strain_routes.route('/db-refresh')
 def refresh():
-    """Pull fresh data from Open AQ and replace existing data."""
-    db.drop_all()
-    db.create_all()
-    # TODO Get data from OpenAQ, make Record objects with it, and add to db
+    print("URL PARMS", dict(request.args))
+    if "api_key" in dict(request.args) and request.args["api_key"] == API_KEY:
+        print(type(db))
+        db.drop_all()
+        db.create_all()
 
-    strain_update()
-
-    """data_to_input = strains
-    for i in range(len(strains)):
-        DB_record = Record(id=i)
-        DB_record.datetime = data_to_input[i][0]
-        DB_record.value =data_to_input[i][1]
-        DB.session.add(DB_record)
-    DB.session.commit()"""
-
-    return 'Table refreshed!'
-
-
-
-
-
+        strain_update()
+        return jsonify({"message": "DB RESET OK"})
+    else:
+        flash("OOPS Permission Denied", "danger")
+        return redirect("/recommendation_form")
