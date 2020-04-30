@@ -38,3 +38,9 @@ def refresh():
     else:
         flash("OOPS Permission Denied", "danger")
         return redirect("/recommendation_form")
+
+@strain_routes.route('/ml_strains.json')
+def ml_strains():
+    url = "https://raw.githubusercontent.com/bw-ft-medcab3-brian/ds/master/data/clean/strain_descriptions_with_machine.csv"
+    df = pd.read_csv(url)
+    return(df.to_json())
